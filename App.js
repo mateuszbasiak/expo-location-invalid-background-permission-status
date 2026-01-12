@@ -22,9 +22,8 @@ const onPress = async () => {
       "Background location permissions are denied. Please enable them in the settings."
     );
   } else if (backgroundLocationPermissionsStatus !== "granted") {
-    void Location.requestForegroundPermissionsAsync().then(() => {
-      void Location.requestBackgroundPermissionsAsync();
-    });
+    await Location.requestForegroundPermissionsAsync();
+    await Location.requestBackgroundPermissionsAsync();
   }
 };
 
